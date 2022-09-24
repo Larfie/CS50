@@ -1,0 +1,26 @@
+from datetime import date
+import inflect
+import sys
+
+
+def main():
+    try:
+        year, month, day = input("Date of birth: ").strip().split("-")
+    except ValueError:
+        sys.exit("Invalid Date format")
+
+    print(convert_num_str(time_diff_minutes(int(year), int(month), int(day))).capitalize() + " minutes")
+
+
+def convert_num_str(number):
+    p = inflect.engine()
+    return p.number_to_words(number, andword="")
+
+
+def time_diff_minutes(i_year, i_month, i_day):
+    today=date.today()
+    return int(((today - date(i_year, i_month, i_day)).total_seconds()) / 60)
+
+
+if __name__ == "__main__":
+    main()

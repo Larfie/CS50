@@ -1,0 +1,36 @@
+body{
+    height: 100vh;
+}
+.container{
+    height: 100%;
+}
+#logo{
+    border-radius: 50%;
+    max-width: 40px;
+    border: 2px solid #555;
+}
+#inputComment{
+    height: 200px;
+}
+img{
+    border: 2px solid #555;
+}
+figure{
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; /* adjust as needed */
+}
+figure img{
+    vertical-align: top;
+}
+figure figcaption{
+    border: 1px dotted blue;
+    text-align: center;
+}
+
+.catPicture{
+    float: left;
+    width:  600px;
+    height: 600px;
+    object-fit: cover;
+}

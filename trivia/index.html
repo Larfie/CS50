@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section" id="first_question">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>The Statue of Liberty was a gift to the United States from which European country?</h3>
+                <hr>
+                <button id="btn1" type="button" value="France">France</button>
+                <button id="btn2" type="button" value="Belgium">Belgium</button>
+                <button id="btn3" type="button" value="United Kingdom">United Kingdom</button>
+                <button id="btn4" type="button" value="Spain">Spain</button>
+            </div>
+
+            <div class="section" id="second_question">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Which artist famously cut off his own ear?</h3>
+                <input type="text" id="written_answer" name="answer">
+                <button id="submit_btn" type="button" >Submit answer</button>
+            </div>
+        </div>
+        <script>
+            let buttons = document.getElementById("first_question").querySelectorAll("button");
+
+            for (let i = 0; i < 4; i++)
+            {
+                let button = buttons[i];
+                button.addEventListener("click", function() {
+                    if (button.value == "France")
+                    {
+                        button.style.backgroundColor = "green";
+
+                        const para = document.createElement("p");
+                        const node = document.createTextNode("Correct!");
+
+                        para.appendChild(node);
+                        document.getElementById("first_question").appendChild(para);
+
+                    }
+                    else
+                    {
+                        button.style.backgroundColor = "red";
+
+                        const para = document.createElement("p");
+                        const node = document.createTextNode("Incorrect!");
+
+                        para.appendChild(node);
+                        document.getElementById("first_question").appendChild(para);
+                    }
+                });
+            }
+        </script>
+        <script>
+            let button = document.querySelector("#submit_btn");
+            let answer = document.querySelector("#written_answer").value;
+
+            const para = document.createElement("p");
+            para.setAttribute("id", "answer_result");
+            para.style.visibility = "hidden";
+            document.getElementById("second_question").appendChild(para);
+
+            button.addEventListener("click", function() {
+                let answer = document.querySelector("#written_answer").value.toLowerCase();
+                if (answer == "vincent van gogh" || answer == "van gogh")
+                {
+                    document.querySelector("#written_answer").style.backgroundColor = "green";
+
+                    if (para.textContent == "")
+                    {
+                        const text = document.createTextNode("Correct!");
+                        para.appendChild(text);
+                        para.style.visibility = "visible";
+                    }
+                    else
+                    {
+                        para.textContent = "Correct!";
+                    }
+                }
+                else
+                {
+                    document.querySelector("#written_answer").style.backgroundColor = "red";
+
+                    if (para.textContent == "")
+                    {
+                        const text = document.createTextNode("Incorrect!");
+                        para.appendChild(text);
+                        para.style.visibility = "visible";
+                    }
+                    else
+                    {
+                        para.textContent = "Incorrect!";
+                    }
+
+                }
+            });
+        </script>
+    </body>
+</html>

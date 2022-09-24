@@ -1,0 +1,25 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+Random Time: 0m10.013s
+Sorted Time: 0m2.137s
+Reversed Time: 0m7.883s
+
+This program was slower sorting the reversed and randomized file, however was faster when sorting a sorted file, so this file must be Bubble sort.
+
+sort2 uses: Merge Sort
+
+How do you know?:
+Random Time: 0m2.484s
+Sorted Time: 0m1.663s
+
+Since this program is the fastest at sorting, both the randomized and the sorted text file, it should be the Merge sorting algorithm, since it runs in Θ(log n)
+
+sort3 uses: Selection Sort
+
+How do you know?:
+Random Time: 0m5.153s
+Sorted Time: 0m4.779s
+Reversed Time: 0m5.079s
+
+The time this program took to sort a sorted file was pratically the same as the time it took to sort a reversed file. Since this program is slower than sort2, this program must be Selection sort.
